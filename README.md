@@ -16,16 +16,23 @@ download the archive or use composer:
 ```composer require drupal/config_ignore_keys```
 
 # Usage example
-After installing the project. create a plugin as in this example:
+After installing the project, create a plugin as in this example:
 
 ``` PHP
 namespace Drupal\contact_form_ignore\Plugin\ConfigIgnore;
+
+use Drupal\Core\Plugin\PluginBase;
+use Drupal\config_ignore_keys\Plugin\ConfigurationIgnorePluginInterface;
+
 /**
  * Class ContactFormIgnore.
  *
- * @ConfigurationIgnorePlugin(id = "contact_form_ignore")
+ * @ConfigurationIgnorePlugin(
+ *   id = "contact_form_ignore",
+ *   description = "Ignoring the receipients of the contact form configuration",
+ * )
  */
-class ContactFormIgnore implements ConfigurationIgnorePluginInterface {
+class ContactFormIgnore extends PluginBase implements ConfigurationIgnorePluginInterface {
 
   /**
    * {@inheritdoc}
@@ -40,6 +47,7 @@ class ContactFormIgnore implements ConfigurationIgnorePluginInterface {
 
 }
 ```
-
+The plugin must be added in the src/Plugin/ConfigIgnore folder of the module
+implementing it.
 The return value of the getConfigurations function has to be an array, with the
 key the config name and the value each config key you desire to ignore.

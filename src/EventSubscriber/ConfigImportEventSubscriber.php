@@ -152,13 +152,13 @@ class ConfigImportEventSubscriber implements EventSubscriberInterface {
       $config_translation = $this->languageConfigFactoryOverride->getOverride($language->getId(), $configFile);
       if (!$config_translation->isNew()) {
         $data = $config_translation->get($configKey);
-        if (!empty($data)) {
+        if (isset($data)) {
           $this->state->set($language->getId() . $configFile . $configKey, $data);
         }
       }
     }
 
-    if (!empty($config) && $config = $config->get($configKey)) {
+    if (!empty($config) && NULL !== $config = $config->get($configKey)) {
       $this->state->set($configFile . $configKey, $config);
     }
   }
@@ -173,13 +173,15 @@ class ConfigImportEventSubscriber implements EventSubscriberInterface {
    */
   private function saveConfigFromState($configFile, $configKey) {
     foreach ($this->languageManager->getLanguages() as $language) {
-      if ($stateValue = $this->state->get($language->getId() . $configFile . $configKey)) {
+      $stateValue = $stateValue = $this->state->get($language->getId() . $configFile . $configKey);
+      if (isset($stateValue)) {
         $config_translation = $this->languageConfigFactoryOverride->getOverride($language->getId(), $configFile);
         $config_translation->set($configKey, $stateValue);
         $config_translation->save();
       }
     }
-    if ($stateValue = $this->state->get($configFile . $configKey)) {
+    $stateValue = $this->state->get($configFile . $configKey);
+    if (isset($stateValue)) {
       $config = $this->configFactory->getEditable($configFile);
       if (!empty($config)) {
         $config->set($configKey, $stateValue);
@@ -198,13 +200,15 @@ class ConfigImportEventSubscriber implements EventSubscriberInterface {
    */
   private function saveConfigFileFromState($configFile, $configKey) {
     foreach ($this->languageManager->getLanguages() as $language) {
-      if ($stateValue = $this->state->get($language->getId() . $configFile . $configKey)) {
+      $stateValue = $stateValue = $this->state->get($language->getId() . $configFile . $configKey);
+      if (isset($stateValue)) {
         $config_translation = $this->languageConfigFactoryOverride->getOverride($language->getId(), $configFile);
         $config_translation->setData($stateValue);
         $config_translation->save();
       }
     }
-    if ($stateValue = $this->state->get($configFile . $configKey)) {
+    $stateValue = $this->state->get($configFile . $configKey);
+    if (isset($stateValue)) {
       $config = $this->configFactory->getEditable($configFile);
       if (!empty($config)) {
         $config->setData($stateValue);

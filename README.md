@@ -1,38 +1,61 @@
-# Introduction
-Allows the developer to ignore particular keys in the configuration and not 
-whole configuration files. Ignoring specific keys is the main difference 
-between this module and Config Ignore.
+CONTENTS OF THIS FILE
+---------------------
 
-# Use case
-If you want more granularity and more control over what you ignore, this module 
-is for you. There are cases in which you would want to track a specific config 
-file, but just ignore one key. For example the email address for contact forms 
-during development could be different than that of dev environments, but the 
-rest of the contact forms configuration should not.
+ * Introduction
+ * Requirements
+ * Installation
+ * Configuration
+ * Maintainers
 
-# Install
-First you would need to install the module. In order to do this, you can either 
-download the archive or use composer:
-```composer require drupal/config_ignore_keys```
 
-# Usage example
+INTRODUCTION
+------------
+
+The Config Ignore Keys allows the developer to ignore particular keys in the
+configuration and not whole configuration files.
+
+This module allows for granularity and more control over what is ignored. There
+are cases in which you would want to track a specific config file, but just
+ignore one key. For example, the email address for contact forms during
+development could be different than that of dev environments, but the rest of
+the contact forms configuration should not.
+
+
+ * For a full description of the module, visit the project page:
+   https://www.drupal.org/project/config_ignore_keys
+
+ * To submit bug reports and feature suggestions, or to track changes:
+   https://www.drupal.org/project/issues/config_ignore_keys
+
+
+REQUIREMENTS
+------------
+
+This module requires no modules outside of Drupal core.
+
+
+INSTALLATION
+------------
+
+ * Install the Config Ignore Keys module as you would normally install a
+   contributed Drupal module. Visit https://www.drupal.org/node/1897420 for
+   further information.
+
+
+CONFIGURATION
+-------------
+
+
 After installing the project, create a plugin as in this example:
 
 ``` PHP
 namespace Drupal\contact_form_ignore\Plugin\ConfigIgnore;
-
-use Drupal\Core\Plugin\PluginBase;
-use Drupal\config_ignore_keys\Plugin\ConfigurationIgnorePluginInterface;
-
 /**
  * Class ContactFormIgnore.
  *
- * @ConfigurationIgnorePlugin(
- *   id = "contact_form_ignore",
- *   description = "Ignoring the receipients of the contact form configuration",
- * )
+ * @ConfigurationIgnorePlugin(id = "contact_form_ignore")
  */
-class ContactFormIgnore extends PluginBase implements ConfigurationIgnorePluginInterface {
+class ContactFormIgnore implements ConfigurationIgnorePluginInterface {
 
   /**
    * {@inheritdoc}
@@ -47,7 +70,18 @@ class ContactFormIgnore extends PluginBase implements ConfigurationIgnorePluginI
 
 }
 ```
+
 The plugin must be added in the src/Plugin/ConfigIgnore folder of the module
 implementing it.
+
 The return value of the getConfigurations function has to be an array, with the
 key the config name and the value each config key you desire to ignore.
+
+MAINTAINERS
+-----------
+
+ * Rosian Negrean (prics) - https://www.drupal.org/u/prics
+
+Supporting organization:
+
+ * PitechPlus - https://www.drupal.org/pitechplus

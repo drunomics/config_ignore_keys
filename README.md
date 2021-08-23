@@ -1,11 +1,11 @@
 CONTENTS OF THIS FILE
 ---------------------
 
- * Introduction
- * Requirements
- * Installation
- * Configuration
- * Maintainers
+* Introduction
+* Requirements
+* Installation
+* Configuration
+* Maintainers
 
 
 INTRODUCTION
@@ -21,11 +21,11 @@ development could be different than that of dev environments, but the rest of
 the contact forms configuration should not.
 
 
- * For a full description of the module, visit the project page:
-   https://www.drupal.org/project/config_ignore_keys
+* For a full description of the module, visit the project page:
+  https://www.drupal.org/project/config_ignore_keys
 
- * To submit bug reports and feature suggestions, or to track changes:
-   https://www.drupal.org/project/issues/config_ignore_keys
+* To submit bug reports and feature suggestions, or to track changes:
+  https://www.drupal.org/project/issues/config_ignore_keys
 
 
 REQUIREMENTS
@@ -37,9 +37,9 @@ This module requires no modules outside of Drupal core.
 INSTALLATION
 ------------
 
- * Install the Config Ignore Keys module as you would normally install a
-   contributed Drupal module. Visit https://www.drupal.org/node/1897420 for
-   further information.
+* Install the Config Ignore Keys module as you would normally install a
+  contributed Drupal module. Visit https://www.drupal.org/node/1897420 for
+  further information.
 
 
 CONFIGURATION
@@ -80,8 +80,14 @@ key the config name and the value each config key you desire to ignore.
 MAINTAINERS
 -----------
 
- * Rosian Negrean (prics) - https://www.drupal.org/u/prics
+* Rosian Negrean (prics) - https://www.drupal.org/u/prics
 
 Supporting organization:
 
- * PitechPlus - https://www.drupal.org/pitechplus
+* PitechPlus - https://www.drupal.org/pitechplus
+
+PURPOSE OF THIS VERSION
+-----------------------
+There is a patch for Drupal 9 compatibility, but because of:
+https://www.mediacurrent.com/blog/how-fix-catch-22-problem-drupal-9-fixes-composer/
+patch is not a working solution so new Drupal 9 compatible version is required.

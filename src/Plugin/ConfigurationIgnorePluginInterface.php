@@ -3,7 +3,7 @@
 namespace Drupal\config_ignore_keys\Plugin;
 
 /**
- * Interface ConfigurationIgnorePluginInterface.
+ * Interface - To be completed on contrib module.
  *
  * @package Drupal\config_ignore_keys\Plugin
  */

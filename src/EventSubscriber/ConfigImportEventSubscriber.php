@@ -12,7 +12,7 @@ use Drupal\language\Config\LanguageConfigFactoryOverride;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
- * Class ConfigImportEventSubscriber.
+ * To be completed on contrib module.
  *
  * @package Drupal\config_ignore_keys\EventSubscriber
  */

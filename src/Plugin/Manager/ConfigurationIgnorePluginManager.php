@@ -7,7 +7,7 @@ use Drupal\Core\Cache\CacheBackendInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 
 /**
- * Class ConfigurationIgnorePluginManager.
+ * To be completed on contrib module.
  *
  * @package Drupal\config_ignore_keys\Plugin\Manager
  */

@@ -9,7 +9,7 @@ use Drupal\KernelTests\KernelTestBase;
 use Drupal\node\Entity\NodeType;
 
 /**
- * Class ConfigIgnoreTest.
+ * To be completed on contrib module.
  *
  * @group config_ignore_keys
  */
